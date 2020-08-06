@@ -28,6 +28,11 @@
    
 <hr>
 
+### Running the App Locally
+1. Make sure you have port 3000 and 8002 free in your machine.
+2. Run npm i on the backend dir and main app dir
+3. Navigate to both dir and run npm start
+
 ### Creating a pull request
 
 1. To ensure you're on the right branch run <code>git branch</code>
