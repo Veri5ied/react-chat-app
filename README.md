@@ -12,15 +12,12 @@
 
 5. Pull updates from the upstream - <code>git pull upstream develop</code>
 
-6. Create a new branch for the feature you're working on - <code>git checkout -b [Feature]</code>
-
-<code>e.g git checkout -b user_registration</code>
+6. Create a new branch for the feature you're working on <code>git checkout -b feat/your-feature</code>
 
 <hr>
 
 ### Naming Convention
 1. Make sure you place your files in the appropriate folder you are working on.
-
 2. Properly link your files
 3. Your pages should be named according to what you are working on
 4. Make use of provided components
