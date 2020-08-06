@@ -1,6 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NavBar from "./components/NavBar"
+import ChatBox from "./components/ChatBox"
+import ErrorModal from "./components/ErrorModal"
+import LoadingModal from "./components/LoadingModal"
+import UserList from "./components/UserList"
 
 function App() {
   return (
