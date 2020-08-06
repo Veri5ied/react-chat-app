@@ -6,7 +6,7 @@
 
 2. Clone your forked repository to your local environment.
 
-3. Navigate into the cloned folder - <code>cd envatoweb-app</code>
+3. Navigate into the cloned folder - <code>cd react-chat-app</code>
 
 4. Add upstream - <code>git remote add upstream https://github.com/Veri5ied/react-chat-app.git</code>
 
