@@ -29,6 +29,12 @@ class ChatBox extends Component {
   }
 
   /*Event listener*/
+  /**
+   *
+   * @param {KeyboardEvent} e
+   *
+   * listen for enter pressed and sends the message.
+   */
 
   onMessageKeyPress(e) {
     if (e.key === "Enter") {
