@@ -9,14 +9,25 @@ import Glyphicon from "react-bootstrap/lib/Glyphicon";
 import {
   MessageList,
   Navbar as NavbarComponent,
-  Avatar,
+  Avatar
 } from "react-chat-elements";
 
-class ChatBox extends Component {
-  state = {
-    messageText: "",
-  };
+/**
+ *
+ * ChatBox Component
+ *
+ * displays all the messages from chat history.
+ * renders message text box for input.
+ */
 
+export default class ChatBox extends Component {
+  state = {
+    messageText: ""
+  };
+  /**
+   *
+   * Sends a message only if it is not falsy.
+   */
   onSendClicked() {
     if (!this.state.messageText) {
       return;
@@ -27,15 +38,12 @@ class ChatBox extends Component {
   onMessageInputChange(e) {
     this.setState({ messageText: e.target.value });
   }
-
-  /*Event listener*/
   /**
    *
    * @param {KeyboardEvent} e
    *
    * listen for enter pressed and sends the message.
    */
-
   onMessageKeyPress(e) {
     if (e.key === "Enter") {
       this.onSendClicked();
@@ -59,7 +67,9 @@ class ChatBox extends Component {
                     </p>
                   </Col>
                   <Avatar
-                    src={require(`../static/images/avatar/${this.props.targetUser.id}.jpg`)}
+                    src={require(`../static/images/avatar/${
+                      this.props.targetUser.id
+                    }.jpg`)}
                     alt={"logo"}
                     size="large"
                     type="circle flexible"
@@ -111,5 +121,3 @@ class ChatBox extends Component {
     );
   }
 }
-
-export default ChatBox;

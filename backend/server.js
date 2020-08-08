@@ -56,5 +56,5 @@ app.get("/users", (req, res) => {
 });
 
 server.listen(port, () =>
-  console.log(`App running on port ${port}!`)
+  console.log(`Example app listening on port ${port}!`)
 );

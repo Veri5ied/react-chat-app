@@ -3,10 +3,17 @@ import { ChatList } from "react-chat-elements";
 import FormControl from "react-bootstrap/lib/FormControl";
 import FormGroup from "react-bootstrap/lib/FormGroup";
 
-class UserList extends Component {
+/**
+ *
+ * Renders user list
+ *
+ * Used on both places Sign-in modal and as ChatList
+ */
+
+export default class UserList extends Component {
   state = {
     userData: [],
-    searchQuery: null,
+    searchQuery: null
   };
   componentDidMount() {}
   searchInput(e) {
@@ -17,16 +24,17 @@ class UserList extends Component {
     }
     this.setState({ searchQuery });
   }
-
-  /* Filter logic */
+  /**
+   *
+   * Implement filter logic on basis of search query.
+   */
   getFilteredUserList() {
     return !this.state.searchQuery
       ? this.props.userData
-      : this.props.userData.filter((user) =>
+      : this.props.userData.filter(user =>
           user.name.toLowerCase().includes(this.state.searchQuery.toLowerCase())
         );
   }
-
   render() {
     let users = this.getFilteredUserList();
     return (
@@ -62,7 +70,7 @@ class UserList extends Component {
                 subtitle: subtitle,
                 date: date,
                 unread: f.unread,
-                user: f,
+                user: f
               };
             })}
             onClick={
@@ -72,11 +80,9 @@ class UserList extends Component {
             }
           />
         ) : (
-          <div className="text-center no-users">No contact to show.</div>
+          <div className="text-center no-users">No users to show.</div>
         )}
       </div>
     );
   }
 }
-
-export default UserList;

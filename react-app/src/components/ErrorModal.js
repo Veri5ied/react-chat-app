@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import Glyphicon from "react-bootstrap/lib/Glyphicon";
 import Modal from "react-bootstrap/lib/Modal";
 
-class ErrorModal extends Component {
+/**
+ *
+ * Renders a Error modal if app encounter any error.
+ */
+
+export default class ErrorModal extends Component {
   state = {};
   render() {
     return (
@@ -21,5 +26,3 @@ class ErrorModal extends Component {
     );
   }
 }
-
-export default ErrorModal;

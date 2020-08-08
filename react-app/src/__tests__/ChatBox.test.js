@@ -12,6 +12,12 @@ describe("ChatBox", () => {
     });
   });
 
+  /**
+   * 
+   * When TargetUser is not null
+   * 
+   * then it show the NavBar, MessageList, MessageTextBox, SendButton
+   */
   describe("when targetUser is not null", () => {
     it("should render chatbox not Jumbotron", () => {
       const wrapper = mount(

@@ -14,7 +14,7 @@ import io from "socket.io-client";
 import { fetchUsers } from "./requests";
 import {
   NotificationContainer,
-  NotificationManager,
+  NotificationManager
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import axios from "axios";
@@ -46,7 +46,7 @@ class App extends Component {
     showChatBox: false, // For small devices only
     showChatList: true, // For small devices only
     error: false,
-    errorMessage: "",
+    errorMessage: ""
   };
 
   /**
@@ -59,9 +59,7 @@ class App extends Component {
   componentDidMount() {
     this.initAxios();
     this.initSocketConnection();
-    fetchUsers().then((users) =>
-      this.setState({ users, signInModalShow: true })
-    );
+    fetchUsers().then(users => this.setState({ users, signInModalShow: true }));
     this.setupSocketListeners();
   }
 
@@ -76,29 +74,29 @@ class App extends Component {
    */
   initAxios() {
     axios.interceptors.request.use(
-      (config) => {
+      config => {
         this.setState({ loading: true });
         return config;
       },
-      (error) => {
+      error => {
         this.setState({ loading: false });
         this.setState({
           errorMessage: `Couldn't connect to server. try refreshing the page.`,
-          error: true,
+          error: true
         });
         return Promise.reject(error);
       }
     );
     axios.interceptors.response.use(
-      (response) => {
+      response => {
         this.setState({ loading: false });
         return response;
       },
-      (error) => {
+      error => {
         this.setState({ loading: false });
         this.setState({
           errorMessage: `Some error occured. try after sometime`,
-          error: true,
+          error: true
         });
         return Promise.reject(error);
       }
@@ -160,7 +158,7 @@ class App extends Component {
       messageData.position = "left";
       targetId = message.from;
     }
-    let targetIndex = userChatData.findIndex((u) => u.id === targetId);
+    let targetIndex = userChatData.findIndex(u => u.id === targetId);
     if (!userChatData[targetIndex].messages) {
       userChatData[targetIndex].messages = [];
     }
@@ -183,7 +181,7 @@ class App extends Component {
   onUserClicked(e) {
     let user = e.user;
     this.socket.emit("sign-in", user);
-    let userChatData = this.state.users.filter((u) => u.id !== user.id);
+    let userChatData = this.state.users.filter(u => u.id !== user.id);
     this.setState({ user, signInModalShow: false, userChatData });
   }
 
@@ -219,17 +217,22 @@ class App extends Component {
         type: "text",
         text: text,
         date: +new Date(),
-        className: "message",
+        className: "message"
       },
-      from: this.state.user.id,
+      from: this.state.user.id
     };
     this.socket.emit("message", message);
   }
 
+  /**
+   * Toggles views from 'ChatList' to 'ChatBox'
+   *
+   * only on Phone
+   */
   toggleViews() {
     this.setState({
       showChatBox: !this.state.showChatBox,
-      showChatList: !this.state.showChatList,
+      showChatList: !this.state.showChatList
     });
   }
 
@@ -237,21 +240,21 @@ class App extends Component {
     let chatBoxProps = this.state.showChatBox
       ? {
           xs: 12,
-          sm: 12,
+          sm: 12
         }
       : {
           xsHidden: true,
-          smHidden: true,
+          smHidden: true
         };
 
     let chatListProps = this.state.showChatList
       ? {
           xs: 12,
-          sm: 12,
+          sm: 12
         }
       : {
           xsHidden: true,
-          smHidden: true,
+          smHidden: true
         };
 
     return (
