@@ -3,7 +3,7 @@ import { ChatList } from "react-chat-elements";
 import FormControl from "react-bootstrap/lib/FormControl";
 import FormGroup from "react-bootstrap/lib/FormGroup";
 
-export default class UserList extends Component {
+class UserList extends Component {
   state = {
     userData: [],
     searchQuery: null,
@@ -78,3 +78,5 @@ export default class UserList extends Component {
     );
   }
 }
+
+export default UserList;
